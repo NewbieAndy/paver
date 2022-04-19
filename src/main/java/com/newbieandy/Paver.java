@@ -19,7 +19,7 @@ package com.newbieandy;
 /**
  * @author Andy
  * @description Paver
- * @date 2022/4/19 22:13:16
+ * @date 2022/4/19 22:13
  */
 public class Paver {
     public static void main(String[] args) {
