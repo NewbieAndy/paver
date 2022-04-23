@@ -16,18 +16,13 @@
 
 package com.newbieandy;
 
-import com.newbieandy.logger.PaverLogger;
-
 /**
- * @author Andy
- * @description Paver
- * @date 2022/4/19 22:13
+ * @author andy
+ * @description Test
+ * @date 2022/4/21 21:46
  */
-public class Paver {
-    private static final PaverLogger logger = PaverLogger.getLogger();
-
-    public static void main(String[] args) {
-        logger.info("running...");
-        logger.warn("hahah");
+public class Test {
+    public void test() {
+        System.out.println("test");
     }
 }

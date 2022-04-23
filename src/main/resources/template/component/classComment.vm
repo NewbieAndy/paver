@@ -1,0 +1,10 @@
+/**
+#if($!{javaFileModel.classComment.comments.size()} > 0)
+#foreach( ${comment} in ${javaFileModel.classComment.comments})
+ * ${comment}
+#end
+ *
+#end
+ * @author ${javaFileModel.classComment.author}
+ * @date ${javaFileModel.classComment.createDateTime}
+ */

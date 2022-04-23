@@ -14,20 +14,12 @@
  * limitations under the License.
  */
 
-package com.newbieandy;
-
-import com.newbieandy.logger.PaverLogger;
+package com.newbieandy.model;
 
 /**
- * @author Andy
- * @description Paver
- * @date 2022/4/19 22:13
+ * @author andy
+ * @description JavaMethod
+ * @date 2022/4/22 23:25
  */
-public class Paver {
-    private static final PaverLogger logger = PaverLogger.getLogger();
-
-    public static void main(String[] args) {
-        logger.info("running...");
-        logger.warn("hahah");
-    }
+public class JavaMethod {
 }

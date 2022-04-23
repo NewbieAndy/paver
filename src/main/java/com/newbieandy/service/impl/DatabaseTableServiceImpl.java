@@ -14,20 +14,22 @@
  * limitations under the License.
  */
 
-package com.newbieandy;
+package com.newbieandy.service.impl;
 
-import com.newbieandy.logger.PaverLogger;
+import com.newbieandy.model.TableInfo;
+import com.newbieandy.service.DatabaseTableService;
+
+import java.util.List;
 
 /**
- * @author Andy
- * @description Paver
- * @date 2022/4/19 22:13
+ * @author andy
+ * @description DatabaseTableServiceImpl
+ * @date 2022/4/23 18:20
  */
-public class Paver {
-    private static final PaverLogger logger = PaverLogger.getLogger();
+public class DatabaseTableServiceImpl implements DatabaseTableService {
 
-    public static void main(String[] args) {
-        logger.info("running...");
-        logger.warn("hahah");
+    @Override
+    public List<TableInfo> listDatabaseTableInfo(String database, List<String> tables) {
+        return null;
     }
 }

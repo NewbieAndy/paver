@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.newbieandy;
+package com.newbieandy.service;
 
-import com.newbieandy.logger.PaverLogger;
+import com.newbieandy.model.TableInfo;
 
 /**
- * @author Andy
- * @description Paver
- * @date 2022/4/19 22:13
+ * @author andy
+ * @description FileGeneratorService
+ * @date 2022/4/23 18:17
  */
-public class Paver {
-    private static final PaverLogger logger = PaverLogger.getLogger();
-
-    public static void main(String[] args) {
-        logger.info("running...");
-        logger.warn("hahah");
-    }
+public interface FileGeneratorService {
+    /**
+     * 根据表信息生成文件
+     *
+     * @param tableInfo 表信息
+     */
+    void generateFileByTable(TableInfo tableInfo);
 }

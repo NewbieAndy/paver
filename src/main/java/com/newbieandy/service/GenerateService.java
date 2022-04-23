@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-package com.newbieandy;
-
-import com.newbieandy.logger.PaverLogger;
+package com.newbieandy.service;
 
 /**
- * @author Andy
- * @description Paver
- * @date 2022/4/19 22:13
+ * @author andy
+ * @description GenerateService
+ * @date 2022/4/23 18:18
  */
-public class Paver {
-    private static final PaverLogger logger = PaverLogger.getLogger();
-
-    public static void main(String[] args) {
-        logger.info("running...");
-        logger.warn("hahah");
-    }
+public interface GenerateService {
+    /**
+     * 生成
+     */
+    void generate();
 }

@@ -14,20 +14,30 @@
  * limitations under the License.
  */
 
-package com.newbieandy;
+package com.newbieandy.service;
 
-import com.newbieandy.logger.PaverLogger;
+import com.newbieandy.model.JavaFile;
+import com.newbieandy.model.TableInfo;
 
 /**
- * @author Andy
- * @description Paver
- * @date 2022/4/19 22:13
+ * @author andy
+ * @description JavaFileConvertService
+ * @date 2022/4/23 18:18
  */
-public class Paver {
-    private static final PaverLogger logger = PaverLogger.getLogger();
+@FunctionalInterface
+public interface JavaFileConvertService<T extends JavaFile> {
+    /**
+     * 转换数据库表到指定Java对象类
+     */
+    T convertTable2JavaFile(TableInfo tableInfo);
 
-    public static void main(String[] args) {
-        logger.info("running...");
-        logger.warn("hahah");
+    /**
+     * 获取DO类名
+     *
+     * @param className 类名
+     * @return DO名
+     */
+    default String getDOClassName(String className) {
+        return className + "DO";
     }
 }

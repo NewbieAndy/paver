@@ -14,20 +14,18 @@
  * limitations under the License.
  */
 
-package com.newbieandy;
+package com.newbieandy.config;
 
-import com.newbieandy.logger.PaverLogger;
+import com.google.inject.AbstractModule;
 
 /**
- * @author Andy
- * @description Paver
- * @date 2022/4/19 22:13
+ * @author andy
+ * @description PaverModule
+ * @date 2022/4/23 18:15
  */
-public class Paver {
-    private static final PaverLogger logger = PaverLogger.getLogger();
-
-    public static void main(String[] args) {
-        logger.info("running...");
-        logger.warn("hahah");
+public class PaverModule extends AbstractModule {
+    @Override
+    protected void configure() {
+        super.configure();
     }
 }

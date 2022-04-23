@@ -1,0 +1,8 @@
+#foreach( ${packageName} in ${javaFileModel.extImportList})
+import ${packageName};
+#end
+
+#foreach( ${packageName} in ${javaFileModel.jreImportList})
+import ${packageName};
+#end
+

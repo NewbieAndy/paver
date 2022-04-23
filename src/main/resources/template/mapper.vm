@@ -1,0 +1,37 @@
+#parse("/template/component/package.vm")
+#parse("/template/component/import.vm")
+#parse("/template/component/classComment.vm")
+#parse("/template/component/classAnnotation.vm")
+public interface ${javaFileModel.className} {
+
+    String TABLE = "${javaFileModel.tableName}";
+    String ALL_COLUMNS = " ${javaFileModel.allColumns} ";
+
+    @Insert("INSERT INTO " + TABLE + " (${javaFileModel.insertColumns}) VALUES (${javaFileModel.insertColumnValues})")
+#if($!{javaFileModel.autoGenerateKey})
+    @Options(useGeneratedKeys = true, keyProperty = "${javaFileModel.keyField}", keyColumn = "${javaFileModel.keyColumn}")
+#end
+    int insert(${javaFileModel.entityName} ${javaFileModel.entityVarName});
+
+    @Update("UPDATE " + TABLE + " set ${javaFileModel.updateColumnValues} where `${javaFileModel.keyColumn}` = #{${javaFileModel.keyField}}")
+    int update(${javaFileModel.entityName} ${javaFileModel.entityVarName});
+
+#if($!{javaFileModel.hasDeleteFlag})
+    @Select("SELECT " + ALL_COLUMNS + "  FROM " + TABLE + " where `${javaFileModel.keyColumn}`= #{${javaFileModel.keyField}} and `${javaFileModel.deleteFlagColumn}` = 0")
+#else
+    @Select("SELECT " + ALL_COLUMNS + "  FROM " + TABLE + " where `${javaFileModel.keyColumn}`= #{${javaFileModel.keyField}}")
+#end
+    ${javaFileModel.entityName} get(@Param("${javaFileModel.keyField}") ${javaFileModel.keyFieldType} ${javaFileModel.keyField});
+
+#if($!{javaFileModel.hasDeleteFlag})
+    @Select("SELECT " + ALL_COLUMNS + "  FROM " + TABLE + " where `${javaFileModel.deleteFlagColumn}` = 0 limit #{offset},#{limit}")
+#else
+    @Select("SELECT " + ALL_COLUMNS + "  FROM " + TABLE + " limit #{offset},#{limit}")
+#end
+    List<${javaFileModel.entityName}> list(@Param("offset") int offset, @Param("limit") int limit);
+
+#if($!{javaFileModel.hasDeleteFlag})
+    @Update("UPDATE " + TABLE + " set `${javaFileModel.deleteFlagColumn}` = 1 where `${javaFileModel.keyColumn}` = #{${javaFileModel.keyField}}")
+    int delete(@Param("${javaFileModel.keyField}") ${javaFileModel.keyFieldType} ${javaFileModel.keyField});
+#end
+}
