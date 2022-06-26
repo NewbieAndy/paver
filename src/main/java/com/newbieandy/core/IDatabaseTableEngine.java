@@ -14,16 +14,24 @@
  * limitations under the License.
  */
 
-package com.newbieandy.service;
+package com.newbieandy.core;
+
+import com.newbieandy.model.TableInfo;
+
+import java.util.List;
 
 /**
  * @author andy
- * @description GenerateService
- * @date 2022/4/23 18:18
+ * @description DatabaseTableService
+ * @date 2022/4/23 18:17
  */
-public interface GenerateService {
+public interface IDatabaseTableEngine {
     /**
-     * 生成
+     * 列出指定数据库对应表的详细信息，包括表明，描述，字段名等信息
+     *
+     * @param database 数据库
+     * @param tables   数据库表
+     * @return 表列表
      */
-    void generate();
+    List<TableInfo> listDatabaseTableInfo(String database, List<String> tables);
 }

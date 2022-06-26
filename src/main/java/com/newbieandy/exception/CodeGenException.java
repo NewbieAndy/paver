@@ -18,27 +18,27 @@ package com.newbieandy.exception;
 
 /**
  * @author andy
- * @description GenCodeException
- * @date 2022/4/22 23:07
+ * @description CodeGenException
+ * @date 2022/6/26 20:43
  */
-public class GenCodeException extends RuntimeException {
-    public GenCodeException() {
+public class CodeGenException extends PaverException {
+    public CodeGenException() {
         super();
     }
 
-    public GenCodeException(String message) {
+    public CodeGenException(String message) {
         super(message);
     }
 
-    public GenCodeException(String message, Throwable cause) {
+    public CodeGenException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public GenCodeException(Throwable cause) {
+    public CodeGenException(Throwable cause) {
         super(cause);
     }
 
-    protected GenCodeException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    protected CodeGenException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }

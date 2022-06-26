@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-package com.newbieandy.service;
-
-import com.newbieandy.model.TableInfo;
+package com.newbieandy.core;
 
 /**
  * @author andy
- * @description FileGeneratorService
- * @date 2022/4/23 18:17
+ * @description GenerateService
+ * @date 2022/4/23 18:18
  */
-public interface FileGeneratorService {
+public interface IGenerator {
     /**
-     * 根据表信息生成文件
-     *
-     * @param tableInfo 表信息
+     * 生成
      */
-    void generateFileByTable(TableInfo tableInfo);
+    void generate();
 }

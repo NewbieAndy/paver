@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.newbieandy.service;
+package com.newbieandy.logger;
 
-import com.newbieandy.model.TableInfo;
-
-import java.util.List;
+import com.newbieandy.exception.CodeGenException;
+import org.junit.Test;
 
 /**
  * @author andy
- * @description DatabaseTableService
- * @date 2022/4/23 18:17
+ * @description LoggerTester
+ * @date 2022/6/11 20:13
  */
-public interface DatabaseTableService {
-    /**
-     * 列出指定数据库对应表的详细信息，包括表明，描述，字段名等信息
-     *
-     * @param database 数据库
-     * @param tables   数据库表
-     * @return 表列表
-     */
-    List<TableInfo> listDatabaseTableInfo(String database, List<String> tables);
+public class LoggerTester {
+    private static final PaverLogger logger = PaverLogger.getLogger();
+
+    @Test
+    public void printLogTest() {
+        logger.warn("这是warn日志...");
+        logger.info("这是info日志...{0}", "idx0", new CodeGenException("错误信息"));
+        logger.error("这是error日志...");
+        logger.debug("这是debug日志");
+    }
 }

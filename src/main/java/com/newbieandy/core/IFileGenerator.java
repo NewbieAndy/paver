@@ -14,30 +14,20 @@
  * limitations under the License.
  */
 
-package com.newbieandy.service;
+package com.newbieandy.core;
 
-import com.newbieandy.model.JavaFile;
 import com.newbieandy.model.TableInfo;
 
 /**
  * @author andy
- * @description JavaFileConvertService
- * @date 2022/4/23 18:18
+ * @description FileGeneratorService
+ * @date 2022/4/23 18:17
  */
-@FunctionalInterface
-public interface JavaFileConvertService<T extends JavaFile> {
+public interface IFileGenerator {
     /**
-     * 转换数据库表到指定Java对象类
-     */
-    T convertTable2JavaFile(TableInfo tableInfo);
-
-    /**
-     * 获取DO类名
+     * 根据表信息生成文件
      *
-     * @param className 类名
-     * @return DO名
+     * @param tableInfo 表信息
      */
-    default String getDOClassName(String className) {
-        return className + "DO";
-    }
+    void generateFileByTable(TableInfo tableInfo);
 }
