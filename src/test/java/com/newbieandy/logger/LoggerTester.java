@@ -19,6 +19,9 @@ package com.newbieandy.logger;
 import com.newbieandy.exception.CodeGenException;
 import org.junit.Test;
 
+import java.util.Map;
+import java.util.Properties;
+
 /**
  * @author andy
  * @description LoggerTester
@@ -29,8 +32,12 @@ public class LoggerTester {
 
     @Test
     public void printLogTest() {
+        Map<String, String> getenv = System.getenv();
+        Properties properties = System.getProperties();
+        System.out.println(getenv);
+        System.out.println(properties);
         logger.warn("这是warn日志...");
-        logger.info("这是info日志...{0}", "idx0", new CodeGenException("错误信息"));
+        logger.info("这是info日志...{0}", "idx0");
         logger.error("这是error日志...");
         logger.debug("这是debug日志");
     }

@@ -27,7 +27,8 @@ public class Paver {
     private static final PaverLogger logger = PaverLogger.getLogger();
 
     public static void main(String[] args) {
-        logger.debug("hello world main");
+        logger.info("info hello world main");
+        logger.debug("debug hello world main");
     }
 }
 

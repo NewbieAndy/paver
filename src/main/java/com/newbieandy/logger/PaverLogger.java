@@ -22,12 +22,13 @@ import org.apache.commons.lang.exception.ExceptionUtils;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 import java.util.logging.*;
 
 /**
  * 日志在本项目中没有特别的需求，直接使用原生的日志，这里针对个人习惯对日志进行一个简单对包装封装
  * 日志支持4中级别，DEBUG->INFO->WARN->ERROR 默认开启INFO级别，要想开启DEBUG日志，需要在启动时指定 --debug参数
- * 开启debug日志需要设置环境变量，paverDebug=true
+ * 开启debug日志需要设置环境变量，PaverDebug=true
  *
  * @author andy
  * @description PaverLogger
@@ -37,7 +38,7 @@ public class PaverLogger {
     /**
      * DEBUG模式环境变量
      */
-    public static final String DEBUG_FLAG_KEY = "paverDebug";
+    public static final String DEBUG_FLAG_KEY = "PaverDebug";
     private static final PaverLogger PAVER_LOGGER;
 
     static {
@@ -48,7 +49,7 @@ public class PaverLogger {
         //自定义日志格式
         consoleHandler.setFormatter(new PaverLogFormatter());
         logger.addHandler(consoleHandler);
-        if ("true".equals(System.getenv(DEBUG_FLAG_KEY))) {
+        if ("true".equals(System.getProperty(DEBUG_FLAG_KEY))) {
             consoleHandler.setLevel(Level.CONFIG);
             logger.setLevel(Level.CONFIG);
         }
