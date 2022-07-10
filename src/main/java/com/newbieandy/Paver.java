@@ -16,7 +16,15 @@
 
 package com.newbieandy;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.newbieandy.config.PaverConfigModule;
+import com.newbieandy.config.PaverModule;
+import com.newbieandy.core.CodeGenerator;
 import com.newbieandy.logger.PaverLogger;
+
+import java.io.*;
+import java.util.Properties;
 
 /**
  * @author Andy
@@ -24,11 +32,35 @@ import com.newbieandy.logger.PaverLogger;
  * @date 2022/4/19 22:13
  */
 public class Paver {
-    private static final PaverLogger logger = PaverLogger.getLogger();
+    private final static PaverLogger LOGGER = PaverLogger.paverGlobalLogger();
 
     public static void main(String[] args) {
-        logger.info("info hello world main");
-        logger.debug("debug hello world main");
+        LOGGER.info("hello");
+        LOGGER.debug(" debug hello");
+        args = new String[1];
+        args[0] = "/aaa/paver_config.properties";
+        String configPath = "";
+
+        Properties properties = new Properties();
+        // 使用InPutStream流读取properties文件
+        BufferedReader bufferedReader = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader(configPath));
+            properties.load(bufferedReader);
+            System.out.println(properties);
+        } catch (FileNotFoundException e) {
+            //todo 文件不存在
+        } catch (IOException e) {
+            //IO错误
+        }
+        initAndRun(args);
     }
+
+    private static void initAndRun(String[] args) {
+        Injector injector = Guice.createInjector(new PaverConfigModule(args), new PaverModule());
+        CodeGenerator instance = injector.getInstance(CodeGenerator.class);
+        instance.generate();
+    }
+
 }
 

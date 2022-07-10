@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-package com.newbieandy.core;
+package com.newbieandy;
 
 /**
  * @author andy
- * @description GenerateService
- * @date 2022/4/23 18:18
+ * @description PaverTester
+ * @date 2022/7/9 14:08
  */
-public interface IGenerator {
-    /**
-     * 生成
-     */
-    void generate();
+public class PaverTester {
 }

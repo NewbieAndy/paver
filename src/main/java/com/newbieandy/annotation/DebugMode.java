@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package com.newbieandy.config;
+package com.newbieandy.annotation;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Singleton;
-import com.newbieandy.core.CodeGenerator;
-import com.newbieandy.core.MysqlGenerator;
+import javax.inject.Qualifier;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.*;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * @author andy
- * @description PaverModule
- * @date 2022/4/23 18:15
+ * @description DebugMode
+ * @date 2022/7/9 16:51
  */
-public class PaverModule extends AbstractModule {
-    @Override
-    protected void configure() {
-        //日志组件
-        bind(CodeGenerator.class).to(MysqlGenerator.class).in(Singleton.class);
-    }
+@Qualifier
+@Target({FIELD, PARAMETER, METHOD})
+@Retention(RUNTIME)
+public @interface DebugMode {
 }

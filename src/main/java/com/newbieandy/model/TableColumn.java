@@ -36,6 +36,7 @@ public class TableColumn {
      * 是否是主键
      */
     private boolean isPrimaryKey;
+
     /**
      * 是否是自增
      */

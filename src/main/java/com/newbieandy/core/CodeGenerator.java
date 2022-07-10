@@ -14,22 +14,16 @@
  * limitations under the License.
  */
 
-package com.newbieandy.config;
-
-import com.google.inject.AbstractModule;
-import com.google.inject.Singleton;
-import com.newbieandy.core.CodeGenerator;
-import com.newbieandy.core.MysqlGenerator;
+package com.newbieandy.core;
 
 /**
  * @author andy
- * @description PaverModule
- * @date 2022/4/23 18:15
+ * @description CodeGenerator
+ * @date 2022/4/23 18:18
  */
-public class PaverModule extends AbstractModule {
-    @Override
-    protected void configure() {
-        //日志组件
-        bind(CodeGenerator.class).to(MysqlGenerator.class).in(Singleton.class);
-    }
+public interface CodeGenerator {
+    /**
+     * 生成
+     */
+    void generate();
 }
