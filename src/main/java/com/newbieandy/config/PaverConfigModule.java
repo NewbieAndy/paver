@@ -46,8 +46,15 @@ public class PaverConfigModule extends AbstractModule {
         LOGGER.debug("start init paver config");
         //配置属性
         Properties properties = loadProperties(this.args);
+        //命令行配置的参数优先级高于配置文件的配置
+        Properties systemProperties = System.getProperties();
+        //合并配置
+        systemProperties.forEach((k, v) -> properties.setProperty((String) k, (String) v));
         //配置加载
-        bindConstant().annotatedWith(Names.named("hello.world")).to("hello world!");
+        properties.forEach((propKey, propValue) ->
+                //看命令行是否有配置，有则覆盖文件的撇脂
+                bindConstant().annotatedWith(Names.named((String) propKey)).to((String) propValue)
+        );
     }
 
     /**
