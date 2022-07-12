@@ -35,6 +35,7 @@ public class PaverLogger {
      */
     private static final String SYS_DEBUG_MODEL_KEY = "debugMode";
 
+    private final boolean debugMode;
     private final Logger logger;
     private final static PaverLogger PAVER_LOGGER = new PaverLogger();
 
@@ -44,6 +45,7 @@ public class PaverLogger {
 
     private PaverLogger() {
         this.logger = Logger.getGlobal();
+        this.debugMode = Boolean.TRUE.toString().equalsIgnoreCase(System.getProperty(SYS_DEBUG_MODEL_KEY));
         logger.setUseParentHandlers(false);
         //控制台处理器，日志仅控制台输出
         ConsoleHandler consoleHandler = new ConsoleHandler();
@@ -51,42 +53,53 @@ public class PaverLogger {
         consoleHandler.setFormatter(new PaverLogFormatter());
         logger.addHandler(consoleHandler);
         //是否是Debug模式
-        String debugMode = System.getProperty(SYS_DEBUG_MODEL_KEY);
-        if (Boolean.TRUE.toString().equalsIgnoreCase(debugMode)) {
+        if (debugMode) {
             consoleHandler.setLevel(Level.CONFIG);
             logger.setLevel(Level.CONFIG);
         }
     }
 
     public void info(String msg) {
-        logger.log(Level.INFO, msg);
+        log(Level.INFO, msg);
     }
 
+
     public void info(String msg, Object... params) {
-        logger.log(Level.INFO, msg, params);
+        log(Level.INFO, msg, params);
     }
 
     public void warn(String msg) {
-        logger.log(Level.WARNING, msg);
+        log(Level.WARNING, msg);
     }
 
     public void warn(String msg, Object... params) {
-        logger.log(Level.WARNING, msg, params);
+        log(Level.WARNING, msg, params);
     }
 
     public void error(String msg) {
-        logger.log(Level.SEVERE, msg);
+        log(Level.SEVERE, msg);
     }
 
     public void error(String msg, Object... params) {
-        logger.log(Level.SEVERE, msg, params);
+        log(Level.SEVERE, msg, params);
     }
 
     public void debug(String msg) {
-        logger.log(Level.CONFIG, msg);
+        log(Level.CONFIG, msg);
     }
 
     public void debug(String msg, Object... params) {
-        logger.log(Level.CONFIG, msg, params);
+        log(Level.CONFIG, msg, params);
+    }
+
+    private void log(Level level, String msg, Object... params) {
+        String sourceClass = "";
+        String sourceMethod = "";
+        if (debugMode) {
+            StackTraceElement[] stackTraces = Thread.currentThread().getStackTrace();
+            sourceClass = stackTraces[3].getClassName();
+            sourceMethod = stackTraces[3].getMethodName();
+        }
+        logger.logp(level, sourceClass, sourceMethod, msg, params);
     }
 }

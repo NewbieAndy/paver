@@ -16,6 +16,7 @@
 
 package com.newbieandy.logger;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
 
 import java.text.MessageFormat;
@@ -44,7 +45,7 @@ public class PaverLogFormatter extends Formatter {
         StringBuilder messageBuilder = new StringBuilder();
         Object[] parameters = record.getParameters();
         //如果最后一个是Throwable则提取出来
-        if (null != parameters && parameters[parameters.length - 1] instanceof Throwable) {
+        if (null != parameters && parameters.length > 0 && parameters[parameters.length - 1] instanceof Throwable) {
             Throwable thrown = (Throwable) parameters[parameters.length - 1];
             record.setThrown(thrown);
         }
@@ -54,8 +55,14 @@ public class PaverLogFormatter extends Formatter {
         messageBuilder.append(getLogTime(millis))
                 .append(" [")
                 .append(getLevelName(level)).append("] ");
+        //有sourceClassName就显示
+        String sourceClassName = record.getSourceClassName();
+        String sourceMethodName = record.getSourceMethodName();
+        if (StringUtils.isNotBlank(sourceClassName) && StringUtils.isNotBlank(sourceMethodName)) {
+            messageBuilder.append("[").append(sourceClassName).append(".").append(sourceMethodName).append("()] ");
+        }
         //Info级别的只显示日志内容，不显示其他信息
-        messageBuilder.append(message).append("\n");
+        messageBuilder.append("").append(message).append("\n");
         //如果最后一个是Throwable则提取出来
         if (null != record.getThrown()) {
             String stackTrace = ExceptionUtils.getFullStackTrace(record.getThrown());

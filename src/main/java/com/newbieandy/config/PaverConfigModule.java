@@ -43,7 +43,6 @@ public class PaverConfigModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        LOGGER.debug("start init paver config");
         //配置属性
         Properties properties = loadProperties(this.args);
         //命令行配置的参数优先级高于配置文件的配置
@@ -59,6 +58,7 @@ public class PaverConfigModule extends AbstractModule {
 
     /**
      * 加载配置文件
+     *
      *
      * @param args 启动参数
      * @return 配置文件

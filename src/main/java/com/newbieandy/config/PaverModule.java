@@ -29,7 +29,7 @@ import com.newbieandy.core.MysqlGenerator;
 public class PaverModule extends AbstractModule {
     @Override
     protected void configure() {
-        //日志组件
+        //
         bind(CodeGenerator.class).to(MysqlGenerator.class).in(Singleton.class);
     }
 }

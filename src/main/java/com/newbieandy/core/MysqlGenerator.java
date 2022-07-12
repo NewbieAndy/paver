@@ -18,8 +18,6 @@ package com.newbieandy.core;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import com.google.inject.name.Names;
-import com.newbieandy.config.ConfigConstants;
 import com.newbieandy.logger.PaverLogger;
 
 /**
