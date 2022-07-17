@@ -40,7 +40,7 @@ public class DBUtilsTester {
     @Test
     public void dbutilsTest() throws SQLException {
         Connection connection = null;
-        DbUtils.loadDriver("");
+        DbUtils.loadDriver("com.mysql.jdbc.Driver");
         String url = "";
         String user = "";
         String password = "";

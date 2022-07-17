@@ -17,9 +17,12 @@
 package com.newbieandy.config;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.newbieandy.core.CodeGenerator;
 import com.newbieandy.core.MysqlGenerator;
+
+import java.sql.Connection;
 
 /**
  * @author andy
@@ -31,5 +34,9 @@ public class PaverModule extends AbstractModule {
     protected void configure() {
         //
         bind(CodeGenerator.class).to(MysqlGenerator.class).in(Singleton.class);
+    }
+    @Provides
+    static Connection Connection() {
+        return null;
     }
 }
