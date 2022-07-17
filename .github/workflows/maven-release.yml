@@ -38,6 +38,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: paver.tar.gz
+        asset_name: mything
         tag: ${{ github.ref }}
         overwrite: true
         
