@@ -38,7 +38,8 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: paver.tar.gz
-        asset_name: mything
+        asset_name: paver.tar.gz
         tag: ${{ github.ref }}
         overwrite: true
+        body: "This is my release text"
         
