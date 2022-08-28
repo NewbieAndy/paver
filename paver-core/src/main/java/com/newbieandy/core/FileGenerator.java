@@ -23,7 +23,7 @@ import com.newbieandy.model.TableInfo;
  * @description FileGeneratorService
  * @date 2022/4/23 18:17
  */
-public interface IFileGenerator {
+public interface FileGenerator {
     /**
      * 根据表信息生成文件
      *

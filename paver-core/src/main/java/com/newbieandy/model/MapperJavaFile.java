@@ -108,7 +108,7 @@ public class MapperJavaFile extends JavaFile {
         return updateColumnValues;
     }
 
-    private MapperJavaFile(MapperJavaFile.Builder builder) {
+    private MapperJavaFile(Builder builder) {
         super(builder);
         this.entityName = builder.entityName;
         this.entityVarName = builder.entityVarName;
@@ -125,11 +125,11 @@ public class MapperJavaFile extends JavaFile {
         this.updateColumnValues = builder.updateColumnValues;
     }
 
-    public static MapperJavaFile.Builder builder(String template, String entityName, String entityPackage, String packageName, String className) {
-        return new MapperJavaFile.Builder(template, entityName, entityPackage, packageName, className);
+    public static Builder builder(String template, String entityName, String entityPackage, String packageName, String className) {
+        return new Builder(template, entityName, entityPackage, packageName, className);
     }
 
-    public static class Builder extends JavaFile.Builder<MapperJavaFile.Builder> {
+    public static class Builder extends JavaFile.Builder<Builder> {
 
         private Builder(String template, String entityName, String entityPackage, String packageName, String className) {
             super(template, packageName, className);
@@ -176,14 +176,14 @@ public class MapperJavaFile extends JavaFile {
         }
 
         @Override
-        protected MapperJavaFile.Builder thisObj() {
+        protected Builder thisObj() {
             return this;
         }
 
         /**
          * 设置表名
          */
-        public MapperJavaFile.Builder tableName(String tableName) {
+        public Builder tableName(String tableName) {
             this.tableName = String.format("`%s`", tableName);
             return this;
         }
@@ -191,7 +191,7 @@ public class MapperJavaFile extends JavaFile {
         /**
          * 设置表所有字段
          */
-        public MapperJavaFile.Builder allColumns(List<String> allColumns, boolean hasDeleteFlag, String deleteFlagColumn) {
+        public Builder allColumns(List<String> allColumns, boolean hasDeleteFlag, String deleteFlagColumn) {
             this.hasDeleteFlag = hasDeleteFlag;
             this.deleteFlagColumn = deleteFlagColumn;
             this.allColumns = allColumns.stream()
@@ -204,7 +204,7 @@ public class MapperJavaFile extends JavaFile {
         /**
          * 设置主键
          */
-        public MapperJavaFile.Builder primaryKeyColumn(String primaryKeyColumn, String keyFieldType, boolean autoGenerate) {
+        public Builder primaryKeyColumn(String primaryKeyColumn, String keyFieldType, boolean autoGenerate) {
             this.autoGenerateKey = autoGenerate;
             this.keyColumn = primaryKeyColumn;
             this.keyField = NameCaseUtil.underlineToCamelCase(primaryKeyColumn);
@@ -215,7 +215,7 @@ public class MapperJavaFile extends JavaFile {
         /**
          * 插入方法
          */
-        public MapperJavaFile.Builder insertMethod(List<String> insertColumns) {
+        public Builder insertMethod(List<String> insertColumns) {
             this.insertColumns = insertColumns.stream()
                     .map(column -> String.format(" `%s`", column))
                     .collect(Collectors.joining(","));
@@ -229,7 +229,7 @@ public class MapperJavaFile extends JavaFile {
         /**
          * 更新方法
          */
-        public MapperJavaFile.Builder updateMethod(List<String> updateColumns) {
+        public Builder updateMethod(List<String> updateColumns) {
             if (null == updateColumns || updateColumns.size() == 0) {
                 return this;
             }
@@ -242,7 +242,7 @@ public class MapperJavaFile extends JavaFile {
         /**
          * list
          */
-        public MapperJavaFile.Builder listMethod() {
+        public Builder listMethod() {
             this.extImportList.add("java.util.List");
             return this;
         }

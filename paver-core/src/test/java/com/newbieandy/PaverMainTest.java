@@ -16,33 +16,18 @@
 
 package com.newbieandy;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.newbieandy.config.PaverConfigModule;
-import com.newbieandy.config.PaverModule;
 import com.newbieandy.core.CodeGenerator;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
  * @author andy
- * @description PaverTester
- * @date 2022/7/9 14:08
+ * @description PaverMainTest
+ * @date 2022/8/24 15:33
  */
-public class PaverTest {
-
-    private CodeGenerator instance;
-
-    @Before
-    public void init() {
-        String[] args = new String[1];
-        args[0] = "../../src/test/resources/paver_config.properties";
-        Injector injector = Guice.createInjector(new PaverConfigModule(args), new PaverModule());
-        instance = injector.getInstance(CodeGenerator.class);
-    }
-
+public class PaverMainTest extends PaverBaseTest {
     @Test
     public void runTester() {
+        CodeGenerator instance = injector.getInstance(CodeGenerator.class);
         instance.generate();
     }
 }

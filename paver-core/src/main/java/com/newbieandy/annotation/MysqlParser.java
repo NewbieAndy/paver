@@ -14,30 +14,23 @@
  * limitations under the License.
  */
 
-package com.newbieandy.core;
+package com.newbieandy.annotation;
 
-import com.newbieandy.model.JavaFile;
-import com.newbieandy.model.TableInfo;
+import com.google.inject.BindingAnnotation;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.*;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * @author andy
- * @description JavaFileConvertService
- * @date 2022/4/23 18:18
+ * @description MysqlParser
+ * @date 2022/8/25 19:58
  */
-@FunctionalInterface
-public interface IJavaFileConverter<T extends JavaFile> {
-    /**
-     * 转换数据库表到指定Java对象类
-     */
-    T convertTable2JavaFile(TableInfo tableInfo);
-
-    /**
-     * 获取DO类名
-     *
-     * @param className 类名
-     * @return DO名
-     */
-    default String getDOClassName(String className) {
-        return className + "DO";
-    }
+@BindingAnnotation
+@Target({ FIELD, PARAMETER, METHOD })
+@Retention(RUNTIME)
+public @interface MysqlParser {
 }

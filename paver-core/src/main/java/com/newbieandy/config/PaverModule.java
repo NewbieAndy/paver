@@ -19,8 +19,11 @@ package com.newbieandy.config;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
+import com.newbieandy.annotation.MysqlParser;
 import com.newbieandy.core.CodeGenerator;
 import com.newbieandy.core.MysqlGenerator;
+import com.newbieandy.parser.CreateTableDDLParser;
+import com.newbieandy.parser.MysqlCreateTableDDLParser;
 
 import java.sql.Connection;
 
@@ -32,9 +35,11 @@ import java.sql.Connection;
 public class PaverModule extends AbstractModule {
     @Override
     protected void configure() {
-        //
+        //Mysql建表语句解析
+        bind(CreateTableDDLParser.class).annotatedWith(MysqlParser.class).to(MysqlCreateTableDDLParser.class).in(Singleton.class);
         bind(CodeGenerator.class).to(MysqlGenerator.class).in(Singleton.class);
     }
+
     @Provides
     static Connection Connection() {
         return null;
