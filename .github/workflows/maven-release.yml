@@ -6,6 +6,9 @@ name: Package Release
 on:
   release:
     types: [created]
+  push:
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -32,11 +35,14 @@ jobs:
       run: |
           cp target/paver-*.jar  paver.jar 
           tar -czvf paver.tar.gz paver.jar startup.sh README.md paver_config.properties
-          
-    - name: Upload to release
-      uses: JasonEtco/upload-to-release@master
+    
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
       with:
-        args: paver.tar.gz application/zip
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-
+        repo_token: ${{ github.token }}
+        file: paver.tar.gz
+        asset_name: paver.tar.gz
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "This is my release text"
+        
