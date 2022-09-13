@@ -14,28 +14,12 @@
  * limitations under the License.
  */
 
-package com.newbieandy.core;
-
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
-import com.newbieandy.logger.PaverLogger;
+package com.newbieandy.model;
 
 /**
  * @author andy
- * @description MysqlGenerator
- * @date 2022/7/9 15:49
+ * @description JavaClassDemo
+ * @date 2022/9/11 15:02
  */
-public class MysqlGenerator implements CodeGenerator {
-    private static final PaverLogger logger = PaverLogger.paverGlobalLogger();
-
-    @Inject
-    @Named("hello.world")
-    private String hello;
-
-    @Override
-    public void generate() {
-        logger.info("info MysqlGenerator... generate...");
-        logger.debug("debug MysqlGenerator... generate...");
-        logger.error(hello);
-    }
+public class JavaClassDemo {
 }

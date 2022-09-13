@@ -14,19 +14,21 @@
  * limitations under the License.
  */
 
-package com.newbieandy.model;
+package com.newbieandy.core;
 
-import java.util.List;
+import com.newbieandy.model.TableInfo;
 
 /**
+ * 表解析器
+ *
  * @author andy
- * @description EntityJavaFile
- * @date 2022/4/22 23:15
+ * @description TableParser
+ * @date 2022/9/11 16:25
  */
-public class EntityJavaFile extends JavaFile {
-    private List<JavaField> fieldModels;
+public interface TableParser<T> {
+    TableInfo parse(T source);
 
-    public List<JavaField> getFieldModels() {
-        return fieldModels;
+    public static void main(String[] args) {
+
     }
 }

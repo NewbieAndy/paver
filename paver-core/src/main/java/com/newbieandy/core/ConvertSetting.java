@@ -18,12 +18,8 @@ package com.newbieandy.core;
 
 /**
  * @author andy
- * @description CodeGenerator
- * @date 2022/4/23 18:18
+ * @description ConvertSeting
+ * @date 2022/9/12 12:04
  */
-public interface CodeGenerator {
-    /**
-     * 生成
-     */
-    void generate();
+public interface ConvertSetting {
 }

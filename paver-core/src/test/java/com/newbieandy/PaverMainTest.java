@@ -16,7 +16,6 @@
 
 package com.newbieandy;
 
-import com.newbieandy.core.CodeGenerator;
 import org.junit.Test;
 
 /**
@@ -27,7 +26,7 @@ import org.junit.Test;
 public class PaverMainTest extends PaverBaseTest {
     @Test
     public void runTester() {
-        CodeGenerator instance = injector.getInstance(CodeGenerator.class);
-        instance.generate();
+//        CodeGenerator instance = injector.getInstance(CodeGenerator.class);
+//        instance.generate();
     }
 }

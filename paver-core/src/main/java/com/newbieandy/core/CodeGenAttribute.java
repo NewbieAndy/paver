@@ -14,19 +14,25 @@
  * limitations under the License.
  */
 
-package com.newbieandy.model;
-
-import java.util.List;
+package com.newbieandy.core;
 
 /**
  * @author andy
- * @description EntityJavaFile
- * @date 2022/4/22 23:15
+ * @description CodeGenAttribute
+ * @date 2022/9/12 11:45
  */
-public class EntityJavaFile extends JavaFile {
-    private List<JavaField> fieldModels;
+public interface CodeGenAttribute<T> {
+    /**
+     * Returns the attribute name.
+     *
+     * @return The attribute name
+     */
+    String name();
 
-    public List<JavaField> getFieldModels() {
-        return fieldModels;
-    }
+    /**
+     * Returns the attribute value.
+     *
+     * @return The attribute value
+     */
+    T value();
 }

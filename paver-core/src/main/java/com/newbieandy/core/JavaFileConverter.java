@@ -25,19 +25,9 @@ import com.newbieandy.model.TableInfo;
  * @date 2022/4/23 18:18
  */
 @FunctionalInterface
-public interface JavaFileConverter<T extends JavaFile> {
+public interface JavaFileConverter {
     /**
      * 转换数据库表到指定Java对象类
      */
-    T convertTable2JavaFile(TableInfo tableInfo);
-
-    /**
-     * 获取DO类名
-     *
-     * @param className 类名
-     * @return DO名
-     */
-    default String getDOClassName(String className) {
-        return className + "DO";
-    }
+    JavaFile convert(TableInfo tableInfo);
 }

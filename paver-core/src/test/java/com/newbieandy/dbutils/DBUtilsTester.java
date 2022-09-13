@@ -40,9 +40,9 @@ public class DBUtilsTester {
     public void dbutilsTest() throws SQLException {
         Connection connection = null;
         DbUtils.loadDriver("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://rm-2zeh154ry782dfp92po.mysql.rds.aliyuncs.com:3306/test_db";
-        String user = "tester";
-        String password = "test_1234";
+        String url = "jdbc:mysql://127.0.0.1:3306/test_db";
+        String user = "root";
+        String password = "mysql@1234";
         connection = DriverManager.getConnection(url, user, password);
         String sql = "select int_val,long_val from sample1 where int_val < 4";
         QueryRunner queryRunner = new QueryRunner();

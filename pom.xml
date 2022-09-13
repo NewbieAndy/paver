@@ -27,7 +27,6 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>paver-core</module>
-        <module>paver-server</module>
         <module>paver-code-gen</module>
     </modules>
 

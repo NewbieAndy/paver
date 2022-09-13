@@ -20,8 +20,6 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.newbieandy.config.PaverConfigModule;
 import com.newbieandy.config.PaverModule;
-import com.newbieandy.core.CodeGenerator;
-import com.newbieandy.logger.PaverLogger;
 
 /**
  * @author Andy
@@ -36,8 +34,8 @@ public class Paver {
 
     private static void initAndRun(String[] args) {
         Injector injector = Guice.createInjector(new PaverConfigModule(args), new PaverModule());
-        CodeGenerator instance = injector.getInstance(CodeGenerator.class);
-        instance.generate();
+//        CodeGenerator instance = injector.getInstance(CodeGenerator.class);
+//        instance.generate();
     }
 
 }

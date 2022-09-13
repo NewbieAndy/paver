@@ -14,24 +14,14 @@
  * limitations under the License.
  */
 
-package com.newbieandy.core;
-
-import com.newbieandy.model.TableInfo;
-
-import java.util.List;
+package com.newbieandy.constants;
 
 /**
  * @author andy
- * @description DatabaseTableService
- * @date 2022/4/23 18:17
+ * @description ClassType
+ * @date 2022/9/12 12:33
  */
-public interface IDatabaseTableEngine {
-    /**
-     * 列出指定数据库对应表的详细信息，包括表明，描述，字段名等信息
-     *
-     * @param database 数据库
-     * @param tables   数据库表
-     * @return 表列表
-     */
-    List<TableInfo> listDatabaseTableInfo(String database, List<String> tables);
+public enum ClassType {
+    CLASS_FILE,
+    INTERFACE_FILE;
 }

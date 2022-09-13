@@ -16,18 +16,16 @@
 
 package com.newbieandy.core;
 
-import com.newbieandy.model.TableInfo;
+import com.newbieandy.model.JavaFile;
+
+import java.io.Writer;
 
 /**
+ * java对象信息 生成Java文件
  * @author andy
- * @description FileGeneratorService
- * @date 2022/4/23 18:17
+ * @description JavaFileGenerator
+ * @date 2022/9/11 15:04
  */
-public interface FileGenerator {
-    /**
-     * 根据表信息生成文件
-     *
-     * @param tableInfo 表信息
-     */
-    void generateFileByTable(TableInfo tableInfo);
+public interface JavaFileGenerator {
+    void generate(JavaFile javaFile, Writer writer);
 }

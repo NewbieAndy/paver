@@ -16,17 +16,10 @@
 
 package com.newbieandy.model;
 
-import java.util.List;
-
 /**
  * @author andy
- * @description EntityJavaFile
- * @date 2022/4/22 23:15
+ * @description JavaInterfaceDemo
+ * @date 2022/9/11 15:02
  */
-public class EntityJavaFile extends JavaFile {
-    private List<JavaField> fieldModels;
-
-    public List<JavaField> getFieldModels() {
-        return fieldModels;
-    }
+public interface JavaInterfaceDemo {
 }
