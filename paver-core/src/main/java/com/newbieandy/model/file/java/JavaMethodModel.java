@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.newbieandy.app;
+package com.newbieandy.model.file.java;
 
 /**
  * @author andy
- * @description PaverCodeGen
- * @date 2022/9/12 12:08
+ * @description JavaMethodModel
+ * @date 2022/9/18 14:20
  */
-public class PaverCodeGen {
+class JavaMethodModel {
 }

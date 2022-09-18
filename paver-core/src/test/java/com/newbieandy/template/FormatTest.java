@@ -18,7 +18,7 @@ package com.newbieandy.template;
 
 import org.junit.Test;
 
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,11 +39,26 @@ public class FormatTest {
 
     @Test
     public void fileWriteTest() throws IOException {
-        List<String> strings = Arrays.asList("hello", "world", "aaaaa" + System.lineSeparator() + "bbbbb","    @Test\n" +
+        List<String> strings = Arrays.asList("hello", "world", "aaaaa" + System.lineSeparator() + "bbbbb", "    @Test\n" +
                 "    public void fileWriteTest() throws IOException {\n" +
                 "        List<String> strings = Arrays.asList(\"hello\", \"world\", \"aaaaa\" + System.lineSeparator() + \"bbbbb\");\n" +
                 "        Path j = Files.write(Paths.get(\"/Users/andy/Desktop/Test.java\"), strings);\n" +
                 "    }");
         Path j = Files.write(Paths.get("/Users/andy/Desktop/Test.java"), strings);
+    }
+
+    @Test
+    public void fileWriterTest() {
+
+        String input = "hello world";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File("/Users/andy/github/paver/paver-core/src/test/java/com/newbieandy/template/hello.txt")))) {
+            for (int i = 0; i < 1000000; i++) {
+                writer.write(input + i);
+                writer.newLine();
+            }
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

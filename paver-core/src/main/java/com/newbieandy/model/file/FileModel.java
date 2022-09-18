@@ -14,12 +14,19 @@
  * limitations under the License.
  */
 
-package com.newbieandy.app;
+package com.newbieandy.model.file;
 
 /**
  * @author andy
- * @description PaverCodeGen
- * @date 2022/9/12 12:08
+ * @description FileModel
+ * @date 2022/9/18 13:21
  */
-public class PaverCodeGen {
+public interface FileModel {
+
+    /**
+     * 文件内容
+     *
+     * @return 文件内容
+     */
+    String getContent();
 }

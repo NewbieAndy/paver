@@ -14,18 +14,12 @@
  * limitations under the License.
  */
 
-package com.newbieandy.core;
-
-import com.newbieandy.model.JavaFile;
-
-import java.io.Writer;
+package com.newbieandy.model.file.java;
 
 /**
- * java对象信息 生成Java文件
  * @author andy
- * @description JavaFileGenerator
- * @date 2022/9/11 15:04
+ * @description JavaFieldModel
+ * @date 2022/9/18 14:20
  */
-public interface JavaFileGenerator {
-    void generate(JavaFile javaFile, Writer writer);
+class JavaFieldModel {
 }

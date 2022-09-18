@@ -14,12 +14,25 @@
  * limitations under the License.
  */
 
-package com.newbieandy.app;
+package com.newbieandy.model;
+
+import com.newbieandy.model.file.java.JavaFileModel;
+import org.junit.Test;
 
 /**
  * @author andy
- * @description PaverCodeGen
- * @date 2022/9/12 12:08
+ * @description JavaModelTest
+ * @date 2022/9/18 14:22
  */
-public class PaverCodeGen {
+public class JavaModelTest {
+    @Test
+    public void test() {
+        JavaFileModel helloworld = JavaFileModel
+                .builder("helloworld")
+                .packageName("com.newbie.andy")
+                .build();
+        String content = helloworld.getContent();
+        System.out.println(content);
+
+    }
 }

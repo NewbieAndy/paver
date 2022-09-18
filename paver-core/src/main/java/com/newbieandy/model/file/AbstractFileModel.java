@@ -14,12 +14,22 @@
  * limitations under the License.
  */
 
-package com.newbieandy.app;
+package com.newbieandy.model.file;
 
 /**
  * @author andy
- * @description PaverCodeGen
- * @date 2022/9/12 12:08
+ * @description AbstractFileModel
+ * @date 2022/9/18 13:27
  */
-public class PaverCodeGen {
+public abstract class AbstractFileModel implements FileModel {
+    private final String content;
+
+    protected AbstractFileModel(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public String getContent() {
+        return this.content;
+    }
 }

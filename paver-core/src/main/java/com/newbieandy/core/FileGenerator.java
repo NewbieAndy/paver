@@ -14,12 +14,25 @@
  * limitations under the License.
  */
 
-package com.newbieandy.app;
+package com.newbieandy.core;
+
+import com.newbieandy.model.file.FileModel;
+
+import java.io.Writer;
 
 /**
+ * 生成文件
+ *
  * @author andy
- * @description PaverCodeGen
- * @date 2022/9/12 12:08
+ * @description FileGenerator
+ * @date 2022/9/11 15:04
  */
-public class PaverCodeGen {
+public interface FileGenerator<T extends FileModel> {
+    /**
+     * 生成文件
+     *
+     * @param fileModel 文件model
+     * @param writer    输出流
+     */
+    void generate(T fileModel, Writer writer);
 }

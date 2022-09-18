@@ -18,6 +18,9 @@ package com.newbieandy.core;
 
 import com.newbieandy.model.TableInfo;
 
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
 /**
  * 表解析器
  *
@@ -25,6 +28,7 @@ import com.newbieandy.model.TableInfo;
  * @description TableParser
  * @date 2022/9/11 16:25
  */
+@FunctionalInterface
 public interface TableParser<T> {
     TableInfo parse(T source);
 
