@@ -18,7 +18,10 @@ package com.newbieandy.model.file.java;
 
 import com.newbieandy.model.file.AbstractFileModel;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author andy
@@ -26,8 +29,9 @@ import java.util.List;
  * @date 2022/9/18 13:30
  */
 public class JavaFileModel extends AbstractFileModel {
-    public JavaFileModel(String content) {
-        super(content);
+
+    private JavaFileModel(String fileName, String content) {
+        super(fileName, content);
     }
 
     /**
@@ -41,9 +45,16 @@ public class JavaFileModel extends AbstractFileModel {
     }
 
     public static class Builder {
+        private static final List<String> DEFAULT_CLASS_MODIFIERS = Arrays.asList("public", "class");
+
         private Builder(String className) {
-            this.className = className;
+            this.className = className + ".java";
         }
+
+        /**
+         * 类名
+         */
+        final private String className;
 
         /**
          * 包名
@@ -53,12 +64,8 @@ public class JavaFileModel extends AbstractFileModel {
         /**
          * 类的修饰符
          */
-        private List<String> classModifiers;
+        private List<String> classModifiers = DEFAULT_CLASS_MODIFIERS;
 
-        /**
-         * 类名
-         */
-        private String className;
 
         /**
          * 实现的接口列表
@@ -107,7 +114,10 @@ public class JavaFileModel extends AbstractFileModel {
          * @return Java对象
          */
         public JavaFileModel build() {
-            return new JavaFileModel(this.className + this.packageName);
+            StringBuilder contentBuilder = new StringBuilder();
+            //构建报名
+
+            return new JavaFileModel(this.className, contentBuilder.toString());
         }
     }
 }

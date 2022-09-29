@@ -14,33 +14,33 @@
  * limitations under the License.
  */
 
-package com.newbieandy.config;
-
-import com.google.inject.AbstractModule;
-import com.google.inject.Provides;
-import com.google.inject.Singleton;
-import com.newbieandy.annotation.MysqlParser;
-import com.newbieandy.parser.CreateTableDDLParser;
-import com.newbieandy.parser.MysqlCreateTableDDLParser;
-
-import java.nio.file.Files;
-import java.nio.file.OpenOption;
-import java.sql.Connection;
-
-/**
- * @author andy
- * @description PaverModule
- * @date 2022/4/23 18:15
- */
-public class PaverModule extends AbstractModule {
-    @Override
-    protected void configure() {
-        //Mysql建表语句解析
-        bind(CreateTableDDLParser.class).annotatedWith(MysqlParser.class).to(MysqlCreateTableDDLParser.class).in(Singleton.class);
-    }
-
-    @Provides
-    static Connection Connection() {
-        return null;
-    }
-}
+//package com.newbieandy.config;
+//
+//import com.google.inject.AbstractModule;
+//import com.google.inject.Provides;
+//import com.google.inject.Singleton;
+//import com.newbieandy.annotation.MysqlParser;
+//import com.newbieandy.parser.CreateTableDDLParser;
+//import com.newbieandy.parser.MysqlCreateTableDDLParser;
+//
+//import java.nio.file.Files;
+//import java.nio.file.OpenOption;
+//import java.sql.Connection;
+//
+///**
+// * @author andy
+// * @description PaverModule
+// * @date 2022/4/23 18:15
+// */
+//public class PaverModule extends AbstractModule {
+//    @Override
+//    protected void configure() {
+//        //Mysql建表语句解析
+//        bind(CreateTableDDLParser.class).annotatedWith(MysqlParser.class).to(MysqlCreateTableDDLParser.class).in(Singleton.class);
+//    }
+//
+//    @Provides
+//    static Connection Connection() {
+//        return null;
+//    }
+//}

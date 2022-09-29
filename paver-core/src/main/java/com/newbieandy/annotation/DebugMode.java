@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package com.newbieandy.annotation;
-
-import javax.inject.Qualifier;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-/**
- * @author andy
- * @description DebugMode
- * @date 2022/7/9 16:51
- */
-@Qualifier
-@Target({FIELD, PARAMETER, METHOD})
-@Retention(RUNTIME)
-public @interface DebugMode {
-}
+//package com.newbieandy.annotation;
+//
+//import javax.inject.Qualifier;
+//import java.lang.annotation.Retention;
+//import java.lang.annotation.Target;
+//
+//import static java.lang.annotation.ElementType.*;
+//import static java.lang.annotation.RetentionPolicy.RUNTIME;
+//
+///**
+// * @author andy
+// * @description DebugMode
+// * @date 2022/7/9 16:51
+// */
+//@Qualifier
+//@Target({FIELD, PARAMETER, METHOD})
+//@Retention(RUNTIME)
+//public @interface DebugMode {
+//}

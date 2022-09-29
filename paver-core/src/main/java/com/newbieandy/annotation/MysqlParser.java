@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.newbieandy.annotation;
-
-import com.google.inject.BindingAnnotation;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-/**
- * @author andy
- * @description MysqlParser
- * @date 2022/8/25 19:58
- */
-@BindingAnnotation
-@Target({ FIELD, PARAMETER, METHOD })
-@Retention(RUNTIME)
-public @interface MysqlParser {
-}
+//package com.newbieandy.annotation;
+//
+//import com.google.inject.BindingAnnotation;
+//
+//import java.lang.annotation.Retention;
+//import java.lang.annotation.Target;
+//
+//import static java.lang.annotation.ElementType.*;
+//import static java.lang.annotation.RetentionPolicy.RUNTIME;
+//
+///**
+// * @author andy
+// * @description MysqlParser
+// * @date 2022/8/25 19:58
+// */
+//@BindingAnnotation
+//@Target({ FIELD, PARAMETER, METHOD })
+//@Retention(RUNTIME)
+//public @interface MysqlParser {
+//}

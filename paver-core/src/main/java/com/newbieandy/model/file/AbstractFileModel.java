@@ -23,8 +23,10 @@ package com.newbieandy.model.file;
  */
 public abstract class AbstractFileModel implements FileModel {
     private final String content;
+    private final String fileName;
 
-    protected AbstractFileModel(String content) {
+    protected AbstractFileModel(String fileName, String content) {
+        this.fileName = fileName;
         this.content = content;
     }
 
